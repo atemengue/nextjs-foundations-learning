@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { Open_Sans } from "next/font/google";
+import Link from 'next/link';
+import styles from "./rootStyle.module.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const openSans = Open_Sans({
   subsets: ["latin"],
-});
+  weight: ["400"]
+})
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,10 +20,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className={openSans.className}>
+      <body>
+        <header className={styles.header}>
+        <h1 className={styles.homeLink}>
+        <Link href="/home">Globomantics</Link>
+        </h1>
+      <h2 className={styles.menuBarLink}>
+          <Link href="/blog">Blog</Link>
+        </h2>
+        <h2 className={styles.menuBarLink}>
+          <Link href="/settings">Settings</Link>
+        </h2>
+        <h2 className={styles.menuBarLink}>
+          <Link href="/conference">Conference</Link>
+        </h2>
+        </header>
+
         {children}
       </body>
     </html>
