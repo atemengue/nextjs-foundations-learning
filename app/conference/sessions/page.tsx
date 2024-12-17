@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import styles from '../conference.module.css';
 
 // Static site generation
