@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from './speaker.module.css';
+import styles from '../conference.module.css';
 
 // Static site generation
 async function fetchSpeakers() {
@@ -21,6 +21,7 @@ export default async function Page() {
         Last Rendered: {new Date().toLocaleTimeString()}
       </div>
       <h1>Welcome to Globomantics Speakers</h1>
+      
       {data.speakers.map(({ id, name, bio }) => (
         <div key={id} className={styles.infoContainer}>
           <Link
